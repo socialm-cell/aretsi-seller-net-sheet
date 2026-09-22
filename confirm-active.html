@@ -60,19 +60,21 @@
   const agentEmail = params.get('email') || '';
   const agentRow = params.get('row') || '';
 
-  function notifyMake(response) {
+  function notifyMake(response, closingDate) {
     if (!agentEmail || !agentRow) return;
+    var payload = { email: agentEmail, row: parseInt(agentRow), response: response };
+    if (closingDate) payload.closing_date = closingDate;
     fetch('https://hook.us2.make.com/ewpch3kcb2lqb6ttc8d01l10onuilq8c', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: agentEmail, row: parseInt(agentRow), response: response })
+      body: JSON.stringify(payload)
     });
   }
 
   document.getElementById('btn-submit').addEventListener('click', function() {
     var d = document.getElementById('newDate').value;
     if (!d) { alert('Please select a date or click Skip.'); return; }
-    notifyMake('Still Active');
+    notifyMake('Still Active', d);
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">✅ Date Received</div>' +
       '<h1>Got it!</h1>' +

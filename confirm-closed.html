@@ -65,14 +65,14 @@
     });
   }
   document.getElementById('btn-yes').addEventListener('click', function() {
-    notifyMake('Closed');
+    notifyMake('Closed - ARETSI');
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge badge-closed">🏡 Closed</div>' +
       '<h1>Thank you!</h1>' +
       '<p class="message">It was a pleasure being part of this transaction. We look forward to working with you again on your next closing. Congratulations on a successful sale!</p>';
   });
   document.getElementById('btn-no').addEventListener('click', function() {
-    notifyMake('Closed');
+    notifyMake('Closed - Other');
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge badge-closed">🏡 Closed</div>' +
       '<h1>Thank you for letting us know!</h1>' +
