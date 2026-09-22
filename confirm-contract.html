@@ -48,8 +48,8 @@
   </div>
   <div class="card-body" id="card-body">
     <div class="status-badge">🔵 Under Contract</div>
-    <h1>That is great news, [First Name]!</h1>
-    <p class="message">We are glad to hear that <strong>[Address]</strong> is under contract. One quick question.</p>
+    <h1>That is great news!</h1>
+    <p class="message">We are glad to hear that the listing is under contract. One quick question.</p>
     <div class="question-section">
       <label>Are you working with ARETSI for this closing?</label>
       <div class="btn-row">
@@ -68,15 +68,15 @@
   document.getElementById('btn-yes').addEventListener('click', function() {
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">🔵 Under Contract</div>' +
-      '<h1>Wonderful, [First Name]!</h1>' +
-      '<p class="message">We are glad to be part of this transaction. Our team will be ready to make the closing for <strong>[Address]</strong> as smooth as possible. We will be in touch!</p>';
+      '<h1>Wonderful!</h1>' +
+      '<p class="message">We are glad to be part of this transaction. Our team will be ready to make the closing as smooth as possible. We will be in touch!</p>';
   });
 
   document.getElementById('btn-no').addEventListener('click', function() {
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">🔵 Under Contract</div>' +
       '<h1>Thank you for letting us know!</h1>' +
-      '<p class="message">We appreciate you keeping us in the loop on <strong>[Address]</strong>. Whenever you have a new listing or need title services, ARETSI is always here for you.</p>';
+      '<p class="message">We appreciate you keeping us in the loop. Whenever you have a new listing or need title services, ARETSI is always here for you.</p>';
   });
 </script>
 

@@ -37,8 +37,8 @@
   </div>
   <div class="card-body" id="card-body">
     <div class="status-badge">🟢 Still Active</div>
-    <h1>Thank you for the update, [First Name]!</h1>
-    <p class="message">We have noted that <strong>[Address]</strong> is still active on the market. We will keep it in mind and stay ready to support you and your client when the time comes.</p>
+    <h1>Thank you for the update!</h1>
+    <p class="message">We have noted that the listing is still active on the market. We will keep it in mind and stay ready to support you and your client when the time comes.</p>
     <div class="date-section">
       <label>New Expected Closing Date (Optional)</label>
       <p>If you have a new estimated closing date, let us know and we will follow up accordingly.</p>
@@ -62,13 +62,13 @@
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">✅ Date Received</div>' +
       '<h1>Got it!</h1>' +
-      '<p class="message">We have updated your expected closing date. We will be in touch closer to that time. Thank you, [First Name]!</p>';
+      '<p class="message">We have updated your expected closing date. We will be in touch closer to that time. Thank you!</p>';
   });
   document.getElementById('btn-skip').addEventListener('click', function() {
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">🟢 Still Active</div>' +
       '<h1>No problem!</h1>' +
-      '<p class="message">We will continue to stay in touch. Do not hesitate to reach out whenever you need us, [First Name].</p>';
+      '<p class="message">We will continue to stay in touch. Do not hesitate to reach out whenever you need us.</p>';
   });
 </script>
 
