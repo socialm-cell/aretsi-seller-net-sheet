@@ -48,4 +48,16 @@
   </div>
 </div>
 
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const agentEmail = params.get('email') || '';
+  const agentRow = params.get('row') || '';
+  if (agentEmail && agentRow) {
+    fetch('https://hook.us2.make.com/ewpch3kcb2lqb6ttc8d01l10onuilq8c', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: agentEmail, row: parseInt(agentRow), response: 'Net Sheet Requested' })
+    });
+  }
+</script>
 </body></html>

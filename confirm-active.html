@@ -56,15 +56,30 @@
 </div>
 
 <script>
+  const params = new URLSearchParams(window.location.search);
+  const agentEmail = params.get('email') || '';
+  const agentRow = params.get('row') || '';
+
+  function notifyMake(response) {
+    if (!agentEmail || !agentRow) return;
+    fetch('https://hook.us2.make.com/ewpch3kcb2lqb6ttc8d01l10onuilq8c', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: agentEmail, row: parseInt(agentRow), response: response })
+    });
+  }
+
   document.getElementById('btn-submit').addEventListener('click', function() {
     var d = document.getElementById('newDate').value;
     if (!d) { alert('Please select a date or click Skip.'); return; }
+    notifyMake('Still Active');
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">✅ Date Received</div>' +
       '<h1>Got it!</h1>' +
       '<p class="message">We have updated your expected closing date. We will be in touch closer to that time. Thank you!</p>';
   });
   document.getElementById('btn-skip').addEventListener('click', function() {
+    notifyMake('Still Active');
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">🟢 Still Active</div>' +
       '<h1>No problem!</h1>' +

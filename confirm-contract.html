@@ -65,7 +65,21 @@
 </div>
 
 <script>
+  const params = new URLSearchParams(window.location.search);
+  const agentEmail = params.get('email') || '';
+  const agentRow = params.get('row') || '';
+
+  function notifyMake(response) {
+    if (!agentEmail || !agentRow) return;
+    fetch('https://hook.us2.make.com/ewpch3kcb2lqb6ttc8d01l10onuilq8c', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: agentEmail, row: parseInt(agentRow), response: response })
+    });
+  }
+
   document.getElementById('btn-yes').addEventListener('click', function() {
+    notifyMake('Under Contract');
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">🔵 Under Contract</div>' +
       '<h1>Wonderful!</h1>' +
@@ -73,6 +87,7 @@
   });
 
   document.getElementById('btn-no').addEventListener('click', function() {
+    notifyMake('Under Contract');
     document.getElementById('card-body').innerHTML =
       '<div class="status-badge">🔵 Under Contract</div>' +
       '<h1>Thank you for letting us know!</h1>' +
